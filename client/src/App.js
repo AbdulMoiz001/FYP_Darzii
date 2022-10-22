@@ -1,12 +1,20 @@
 import React from "react";
+import Navbar from "./components/javaScript/navBar.js";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 const App= () =>
 {
     return(
-        <div>
-            <h1>App</h1>
-        </div>
+        <>
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/" exact  />
+            </Routes>
+        
+        </Router>
+        </>
     )
 }
 
