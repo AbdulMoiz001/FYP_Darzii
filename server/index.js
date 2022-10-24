@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 
 import postRoutes from './routes/posts.js';
 import routerAuth from "./routes/auth.js";
+import routerUsers from "./routes/users.js";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(cors());
 
 // app.use('/posts', postRoutes);
 app.use('/auth', routerAuth);
+app.use('/user', routerUsers);
 
 const CONNECTION_URL = "mongodb+srv://Darzii:darzii123@cluster0.fwhecap.mongodb.net/?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
