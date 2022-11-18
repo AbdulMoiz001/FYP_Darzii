@@ -13,9 +13,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  displayName: {
-    type: String,
-  },
+  // displayName: {
+  //   type: String,
+  // },
   email: {
     type: String,
     required: true,
@@ -30,20 +30,20 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  provider: {
-    type: String,
-  },
-  providerData: {},
+  // provider: {
+  //   type: String,
+  // },
+  // providerData: {},
   additionalProvidersData: {},
-  roles: {
-    type: [
-      {
-        type: String,
-        enum: ["user", "admin"],
-      },
-    ],
-    default: ["user"],
-  },
+  // roles: {
+  //   type: [
+  //     {
+  //       type: String,
+  //       enum: ["user", "admin"],
+  //     },
+  //   ],
+  //   default: ["user"],
+  // },
   updated: {
     type: Date,
   },
@@ -52,12 +52,12 @@ const UserSchema = new mongoose.Schema({
     default: Date.now,
   },
   /* For reset password */
-  resetPasswordToken: {
-    type: String,
-  },
-  resetPasswordExpires: {
-    type: Date,
-  },
+  // resetPasswordToken: {
+  //   type: String,
+  // },
+  // resetPasswordExpires: {
+  //   type: Date,
+  // },
 });
 
 const userSchemaMsg = mongoose.model("userSchemaMsg", UserSchema);
