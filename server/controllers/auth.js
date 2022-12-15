@@ -37,7 +37,7 @@ export const LoginUser = async (req,res) =>{
         const originalPassword = bytes.toString(CryptoJS.enc.Utf8);
         if(originalPassword != req.body.password)
         {
-            res.status(401).json("Wrong password or username!");
+            res.status(401).json(originalPassword + "----- ur pass" + req.body.password);
         }
         else
         {

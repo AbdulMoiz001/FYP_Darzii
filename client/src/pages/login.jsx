@@ -6,13 +6,13 @@ import "./css/login.css";
 
 export default function Login() {
     const [email, setEmail] = useState("");
-    const [passwd, setpasswd] = useState("");
+    const [password, setpassword] = useState("");
     const {isFetching, dispatch}= useContext(AuthContext);
 
 
     const handleLogin = (e) => {
         e.preventDefault();
-        login({ email, passwd }, dispatch);
+        login({ email, password }, dispatch);
     }
 
     return (
@@ -28,7 +28,7 @@ export default function Login() {
                     type="password"
                     placeholder="password "
                     className="loginInput"
-                    onChange={(e) => setpasswd(e.target.value)}
+                    onChange={(e) => setpassword(e.target.value)}
                 />
                 <button className=" loginButton " onClick={handleLogin} disabled={isFetching} >Login</button>
             </form>

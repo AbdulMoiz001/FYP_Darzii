@@ -1,0 +1,50 @@
+*{
+  text-decoration: none;
+  font-size: 20px;
+}
+
+
+body
+{
+    margin: 0;
+}
+.NavbarItems
+{
+    position: absolute;
+    background-color: yellowgreen;
+    margin: 0px;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.singIn_singOut{
+    margin-left:2%;
+    text-align: center;
+    width: 15%
+}
+
+.logo
+{
+    text-align: center;
+    width: 20%
+}
+
+a{
+    width: 100%;
+}
+
+a :hover{
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+.pageLinks
+{
+    width: 35%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
