@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className="NavbarItems">
         <Link
-          className={` singIn_singOut${
+          className={` singIn_singOut ${
             location.pathname === "/logIn" ? "active" : ""
           }`}
           to="/logIn"

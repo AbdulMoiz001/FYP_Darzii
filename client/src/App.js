@@ -1,5 +1,6 @@
 import React from "react";
 import Login from "./pages/login";
+import Register from "./pages/register"
 import Navbar from "./components/Navbar";
 import {
   BrowserRouter as Router,
@@ -17,8 +18,9 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-{/* 
-        <Route exact path="/" element={<Login />} /> */}
+
+        {/* <Route path="/logIn" element={<Login />} /> */}
+        <Route path="/login" element={<Register />} />
 
       </Routes>
     </Router>

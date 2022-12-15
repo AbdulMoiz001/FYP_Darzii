@@ -22,7 +22,7 @@ body
 .singIn_singOut{
     margin-left:2%;
     text-align: center;
-    width: 15%
+    width: 20%
 }
 
 .logo
@@ -31,9 +31,6 @@ body
     width: 20%
 }
 
-a{
-    width: 100%;
-}
 
 a :hover{
     cursor: pointer;

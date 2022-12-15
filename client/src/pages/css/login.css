@@ -9,17 +9,28 @@
 
 .loginForm
 {
+    height: 300px;
+    width: 400px;
+    background-color: #adadad;
+    margin-top: 300px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .loginInput
 {
-    margin-bottom: 10px;
+    width: 80%;
+    height: 40px;
+    margin:10px;
 }
 
 .loginButton{
 
+    height: 40px;
+    width: 80%;
+    margin:10px;
     border:none;
     
 }
