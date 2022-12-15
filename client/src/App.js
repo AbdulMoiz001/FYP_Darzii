@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
 } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./components/context/authContext/AuthContext";
@@ -22,12 +21,5 @@ const App = () => {
   );
 };
 
-// const App = () => {
-//   return (
-//     <>
-//       <h1>Hello there</h1>
-//     </>
-//   );
-// };
 
 export default App;

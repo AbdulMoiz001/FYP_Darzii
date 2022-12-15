@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import App from "./App";
 import { AuthContextProvider } from "./components/context/authContext/AuthContext";
 import { createRoot } from "react-dom/client";
