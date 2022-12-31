@@ -22,6 +22,7 @@ app.use(cors());
 app.use('/auth', routerAuth);
 app.use('/user', routerUsers);
 app.use('/product', routerProduct);
+app.use('/cart', )
 
 const CONNECTION_URL = process.env.CONNECTION_URL || "mongodb+srv://Darzii:darzii123@cluster0.fwhecap.mongodb.net/?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
