@@ -1,49 +1,40 @@
 import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
-  image:
-  {
-    type: String
+  image: {
+    type: String,
+    default: "",
+  },
+  username: {
+    type: String,
   },
   firstName: {
     type: String,
-    required: true
-    },
+    required: true,
+  },
   lastName: {
     type: String,
     default: "",
   },
-  // displayName: {
-  //   type: String,
-  // },
   email: {
     type: String,
     required: true,
     unique: true,
   },
-  username: {
-    type: String,
-    unique: true,
-    required: true,
-  },
+
   password: {
     type: String,
     required: true,
   },
-  // provider: {
-  //   type: String,
-  // },
-  // providerData: {},
-  additionalProvidersData: {},
-  // roles: {
-  //   type: [
-  //     {
-  //       type: String,
-  //       enum: ["user", "admin"],
-  //     },
-  //   ],
-  //   default: ["user"],
-  // },
+  roles: {
+    type: [
+      {
+        type: String,
+        enum: ["user", "admin"],
+      },
+    ],
+    default: ["admin"],
+  },
   updated: {
     type: Date,
   },
@@ -51,15 +42,8 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  /* For reset password */
-  // resetPasswordToken: {
-  //   type: String,
-  // },
-  // resetPasswordExpires: {
-  //   type: Date,
-  // },
 });
 
-const userSchemaMsg = mongoose.model("userSchemaMsg", UserSchema);
+const userSchema = mongoose.model("User", UserSchema);
 
-export default userSchemaMsg;
+export default userSchema;
