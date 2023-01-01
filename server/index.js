@@ -9,6 +9,8 @@ import routerAuth from "./routes/auth.js";
 import routerUsers from "./routes/users.js";
 import routerProduct from "./routes/Product.js";
 import routerCart from "./routes/cart.js";
+import routerMeasurement from "./routes/measurement.js";
+import routerOrder from "./routes/order.js";
 
 const app = express();
 
@@ -23,6 +25,7 @@ app.use(cors());
 app.use('/auth', routerAuth);
 app.use('/user', routerUsers);
 app.use('/cart', routerCart);
+app.use('/measurment', routerMeasurement);
 
 app.use('/product', routerProduct);
 

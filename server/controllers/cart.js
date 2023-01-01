@@ -5,10 +5,10 @@ export const getCart = async (req, res) => {
     console.log(req.params.id);
     try {
       const uCart = await userCart
-      .findOne({user: req.params.id});
+        .findOne({ user: req.params.id });
 
       res.status(200).json(uCart);
-    console.log(uCart);
+      console.log(uCart);
 
     } catch (error) {
       res.status(404).json(error);
@@ -19,24 +19,24 @@ export const getCart = async (req, res) => {
 };
 
 // add, remove, update
-export const updateCart = async (req,res) => {
-    if (req.user.id == req.params.id) {
-        try {
-            
-          const uCart = await userCart.findOneAndUpdate(
-            {user: req.params.id},
-            {
-                $set:req.body
-            },
-             {new: true}
-             );
-             
-          res.status(200).json(uCart);
-        } catch (error) {
-          res.status(404).json(error);
-        }
-      } else {
-        res.status(403).json("You can only access your Cart!");
-      }
+export const updateCart = async (req, res) => {
+  if (req.user.id == req.params.id) {
+    try {
+
+      const uCart = await userCart.findOneAndUpdate(
+        { user: req.params.id },
+        {
+          $set: req.body
+        },
+        { new: true }
+      );
+
+      res.status(200).json(uCart);
+    } catch (error) {
+      res.status(404).json(error);
+    }
+  } else {
+    res.status(403).json("You can only access your Cart!");
+  }
 }
 

@@ -2,6 +2,7 @@ import CryptoJS from "crypto-js";
 import jwt from "jsonwebtoken";
 import userSchemaMsg from "../models/userShema.js";
 import darziSchema from "../models/darziSchema.js";
+import riderSchema from "../models/riderSchema.js";
 
 import userCart from "../models/userCart.js";
 
@@ -38,6 +39,7 @@ const createCartOf = async (user) => {
         console.log(error);
     }
 };
+
 
 //create Other user {"Warehouse"}
 export const registerWarehouseUsers = async (req, res) => {
@@ -99,7 +101,7 @@ export const LoginUser = async (req, res) => {
 
 export const registerDarzi = async (req, res) => {
     if (req.user.roles.includes("admin")) {
-        const newUser = new DarziSchema
+        const newUser = new darziSchema
             ({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
@@ -127,7 +129,7 @@ export const registerDarzi = async (req, res) => {
 
 export const registerRider = async (req, res) => {
     if (req.user.roles.includes("admin")) {
-        const newUser = new DarziSchema
+        const newUser = new riderSchema
             ({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
@@ -157,7 +159,7 @@ export const registerRider = async (req, res) => {
 export const logInRider = async (req, res) => {
     try {
         //find using email
-        const user = await userSchemaMsg.findOne({ email: req.body.email });
+        const user = await riderSchema.findOne({ email: req.body.email });
         if (!user) {
             res.status(401).json("Wrong password or username!");
             return;
@@ -186,7 +188,7 @@ export const logInRider = async (req, res) => {
 export const logInDarzi = async (req, res) => {
     try {
         //find using email
-        const user = await userSchemaMsg.findOne({ email: req.body.email });
+        const user = await darziSchema.findOne({ email: req.body.email });
         if (!user) {
             res.status(401).json("Wrong password or username!");
             return;

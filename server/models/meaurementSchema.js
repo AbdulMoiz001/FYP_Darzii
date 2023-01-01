@@ -6,12 +6,68 @@ const measurementSchema = mongoose.Schema({
     ref: "user",
     required: true,
   },
+
+  //Incomplete: Needs type of measurements and their attributes
   name: {
     type: String,
     required: true,
   },
 
-  //Incomplete: Needs type of measurements and their attributes
+  foreArms:
+  {
+    type: Number,
+    default: 0,
+  },
+  fullArmsLength:
+  {
+    type: Number,
+    default: 0,
+  },
+  shoulderToShoulder:
+  {
+    type: Number,
+    default: 0,
+  },
+  chest:
+  {
+    type: Number,
+    default: 0,
+  },
+  waist:
+  {
+    type: Number,
+    default: 0,
+  },
+  hips:
+  {
+    type: Number,
+    default: 0,
+  },
+  shoulderToHip:
+  {
+    type: Number,
+    default: 0,
+  },
+  thigh:
+  {
+    type: Number,
+    default: 0,
+  },
+  calf:
+  {
+    type: Number,
+    default: 0,
+  },
+  hipToFeet:
+  {
+    type: Number,
+    default: 0,
+  },
+  height:
+  {
+    type: Number,
+    default: 0,
+  },
 
   updated: {
     type: Date,
