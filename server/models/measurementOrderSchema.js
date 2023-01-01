@@ -25,10 +25,14 @@ const measurementOrderSchema = mongoose.Schema({
         enum: [
           'Not processed',
           'Processing',
+          'Shipped to Darzi',
+          'Delivered to Darzi',
+          'Cutting',
+          'Stiching',
           'Shipped',
           'Delivered',
           'Cancelled',
-        ], // enum means string objects
+        ],
       },
 
 

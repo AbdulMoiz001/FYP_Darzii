@@ -1,21 +1,57 @@
 import mongoose from "mongoose";
 
-const orderSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
-        required: true,
-    },
-    
-    cart: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "orderCart",
-    },
-  
-  measurements: [
+const OrderSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
+    required: true,
+  },
+
+  cart: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "orderCart",
+  },
+
+  measurements:
     { type: mongoose.Schema.Types.ObjectId, ref: "measurementOrder" },
-  ],
-  
+
+  deliveryAddress:
+  {
+    address_name: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    area: { type: String },
+    address: {
+      type: String,
+    },
+    required: true,
+  },
+  paymentAdress:
+  {
+    address_name: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    area: { type: String },
+    address: {
+      type: String,
+    }
+  },
+
+  is_payed:
+  {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+
+
+
   status: {
     type: String,
     default: 'Not processed',
@@ -23,9 +59,12 @@ const orderSchema = new mongoose.Schema({
       'Not processed',
       'Processing',
       'Shipped',
+      'Partial Shipped',
       'Delivered',
+      'Partial Delivered',
       'Cancelled',
-    ], // enum means string objects
+      'Partial Cancelled',
+    ],
   },
 
   updated: {
@@ -36,23 +75,7 @@ const orderSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+const orderSchema = mongoose.model("order", OrderSchema);
 
-const OrderSchema = new Schema({
-  cart: {
-    type: Schema.Types.ObjectId,
-    ref: "Cart",
-  },
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
-  total: {
-    type: Number,
-    default: 0,
-  },
-  updated: Date,
-  created: {
-    type: Date,
-    default: Date.now,
-  },
-});
+export default orderSchema;
+

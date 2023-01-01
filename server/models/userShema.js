@@ -10,7 +10,6 @@ const UserSchema = new mongoose.Schema({
   },
   firstName: {
     type: String,
-    required: true,
   },
   lastName: {
     type: String,
@@ -26,15 +25,41 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
+  gender:
+  {
+    type: String,
+    enum:["male", "female"]
+  },
+  DOB:
+  {
+    type: Date
+  },
   roles: {
     type: [
       {
         type: String,
-        enum: ["user", "admin"],
+        enum: ["user", "admin", "warehouse"],
       },
     ],
-    default: ["admin"],
+    default: ["user"],
+    required: true,
   },
+
+  addresses: [
+    {
+      addressName: {
+        type: String,
+      },
+      city: {
+        type: String,
+      },
+      area:{type:String},
+      address: {
+        type: String,
+      }
+    }
+  ],
   updated: {
     type: Date,
   },

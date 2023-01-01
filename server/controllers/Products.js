@@ -2,7 +2,7 @@ import ProductSchema from "../models/productSchema.js";
 
 //Add New Product
 export const addNewProduct = async (req, res) => {
-  if (req.user.roles.includes("admin")) {
+  if (req.user.roles.includes("admin") || req.user.roles.includes("warehouse")) {
     const newProduct = new ProductSchema({
       name: req.body.name,
       image: req.body.image,
@@ -18,7 +18,7 @@ export const addNewProduct = async (req, res) => {
       res.status(500).json(error);
     }
   } else {
-    res.status(403).json("You can't do that");
+    res.status(403).json("You are not allowed");
   }
 };
 
@@ -44,7 +44,7 @@ export const productUpdate = async (req, res) => {
 
 //Delete a product
 export const removeProduct = async (req, res) => {
-  if (req.user.roles.includes("admin")) {
+  if (req.user.roles.includes("admin") || req.user.roles.includes("warehouse")) {
     try {
       await ProductSchema.findByIdAndDelete(req.params.id);
       res.status(200).json("Product has been Deleted");
@@ -52,13 +52,13 @@ export const removeProduct = async (req, res) => {
       res.status(500).json(error);
     }
   } else {
-    res.status(403).json("You can't do that");
+    res.status(403).json("You are not allowed");
   }
 };
 
 //Update Product
 export const updateProduct = async (req, res) => {
-  if (req.user.roles.includes("admin")) {
+  if (req.user.roles.includes("admin") ||  req.user.roles.includes("warehouse")) {
     const query = req.query.pid;
     console.log(query);
 

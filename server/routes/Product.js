@@ -1,7 +1,7 @@
 import Express  from "express";
 import { addNewProduct, getAllProducts, removeProduct, 
     getFeaturedProducts, updateProduct } from "../controllers/Products.js";
-import { verify } from "./verifyToken.js";
+import { verify } from "./verifyUserTokens.js";
 
 const routerProduct = Express.Router();
 
