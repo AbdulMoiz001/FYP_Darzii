@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 import routerAuth from "./routes/auth.js";
 import routerUsers from "./routes/users.js";
 import routerProduct from "./routes/Product.js";
+import routerCart from "./routes/cart.js";
 
 const app = express();
 
@@ -21,8 +22,10 @@ app.use(cors());
 
 app.use('/auth', routerAuth);
 app.use('/user', routerUsers);
+app.use('/cart', routerCart);
+
 app.use('/product', routerProduct);
-app.use('/cart', )
+
 
 const CONNECTION_URL = process.env.CONNECTION_URL || "mongodb+srv://Darzii:darzii123@cluster0.fwhecap.mongodb.net/?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;

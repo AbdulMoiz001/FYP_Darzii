@@ -32,21 +32,10 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
 
-  featured:
-  {
+  featured: {
     type: Boolean,
     default: false,
   },
-  reviews: [
-    {
-      reviewer_id: {type: String},
-      name: {type: String},
-      comment: {type: String},
-      rating:
-       {type: Number,
-      $lt: 6},
-    }
-  ],
 
   updated: {
     type: Date,

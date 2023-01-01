@@ -2,6 +2,8 @@ import CryptoJS from "crypto-js";
 import jwt from "jsonwebtoken";
 import userSchemaMsg from "../models/userShema.js";
 
+import userCart from "../models/userCart.js";
+
 
 
 //Register
@@ -20,6 +22,12 @@ export const registerUser = async (req,res) =>
     try {
         const user = await newUser.save();
         res.status(201).json(user);
+
+        const newUserCart = new userCart({
+            user: user._id
+        });
+
+        await newUserCart.save();
         
     } catch (error) {
         res.status(500).json(error);

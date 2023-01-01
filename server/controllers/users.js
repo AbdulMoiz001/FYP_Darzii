@@ -30,7 +30,6 @@ export const userUpdate = async (req, res) => {
 
 //Delete
 export const userDelete = async (req, res) => {
-
   if (req.user.id == req.params.id || req.user["roles"].includes("admin")) {
     try {
       await userSchema.findByIdAndDelete(req.params.id);
@@ -45,14 +44,16 @@ export const userDelete = async (req, res) => {
 
 //Get
 export const userGet = async (req, res) => {
-  try {
-    
-    const user = await userSchema.findById(req.params.id);
-    const { password, ...info } = user._doc;
-    res.status(200).json(info);
-
-  } catch (error) {
-    res.status(404);
+  if (req.user.id == req.params.id || req.user["roles"].includes("admin")) {
+    try {
+      const user = await userSchema.findById(req.params.id);
+      const { password, ...info } = user._doc;
+      res.status(200).json(info);
+    } catch (error) {
+      res.status(404).json(error);
+    }
+  } else {
+    res.status(403).json("You can only get your account");
   }
 };
 

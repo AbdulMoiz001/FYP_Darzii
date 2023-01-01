@@ -1,10 +1,12 @@
 import Express  from "express";
-import { addNewProduct, getAllProducts, removeProduct, getFeaturedProducts } from "../controllers/Products.js";
+import { addNewProduct, getAllProducts, removeProduct, 
+    getFeaturedProducts, updateProduct } from "../controllers/Products.js";
 import { verify } from "./verifyToken.js";
 
 const routerProduct = Express.Router();
 
 //admin
+routerProduct.put('/updateProduct', verify, updateProduct)
 routerProduct.post('/addProduct',verify, addNewProduct);
 routerProduct.delete('/removeProduct',verify, removeProduct);
 
