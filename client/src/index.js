@@ -1,27 +1,14 @@
-import React from "react";
-import App from "./App";
-import { AuthContextProvider } from "./components/context/authContext/AuthContext";
-import { createRoot } from "react-dom/client";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Admin from './components/Screens/Admin/Admin';
+import { BrowserRouter } from 'react-router-dom';
 
-<React.StrictMode>
-  <AuthContextProvider></AuthContextProvider>
-</React.StrictMode>;
-const container = document.getElementById("root");
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <AuthContextProvider>
-      <App tab="home" />
-    </AuthContextProvider>
-  </React.StrictMode>
+    // <BrowserRouter>
+    //     <App />
+    // </BrowserRouter>
+    <Admin/>
 );
-
-// ReactDOM.render(
-//     // <React.StrictMode>
-//     //   <AuthContextProvider>
-
-//     //   </AuthContextProvider>
-//     // </React.StrictMode>,
-//         <App />,
-//     document.getElementById("root")
-//   );

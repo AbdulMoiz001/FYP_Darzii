@@ -1,31 +1,22 @@
-import React from "react";
-import Login from "./pages/login";
-import Register from "./pages/register"
-import Navbar from "./components/Navbar";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "./components/context/authContext/AuthContext";
+import React from 'react';
+import Navbar from './components/Navbar/UserNavbar01/Navbar';
+import Home from './components/Screens/Home/Home';
+import Store from './components/Screens/Store/Store';
+import Gateway from './components/Screens/Signup/Gateway';
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
 
-const App = () => {
-  const { user } = useContext(AuthContext);
-
-  console.log(user);
+function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-
-        {/* <Route path="/logIn" element={<Login />} /> */}
-        <Route path="/login" element={<Register />} />
-
-      </Routes>
-    </Router>
+    <div className="App">
+          <Navbar/>
+          <Routes>
+            <Route path='' element={<Home/>}/>
+            <Route path='Store' element={<Store/>}/>
+            <Route path='Try' element={<Gateway/>}/>
+          </Routes>
+    </div>
   );
-};
-
+}
 
 export default App;
